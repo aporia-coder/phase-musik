@@ -1,6 +1,5 @@
 {
   "name": "phase-musik",
-  "homepage": "http://aporia-coder.github.io/phase-musik",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
