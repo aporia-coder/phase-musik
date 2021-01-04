@@ -24,6 +24,9 @@ const SongContainer = styled.div`
 const AlbumCover = styled.img`
   width: 20%;
   border-radius: 50%;
+  @media (max-width: 800px) {
+    width: 40%;
+  }
 `;
 
 const SongName = styled.h1`

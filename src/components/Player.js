@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { playAudio } from "../utilities/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -20,8 +19,6 @@ const Player = ({
   timeInfo,
   handleDrag,
 }) => {
-  console.log(timeInfo);
-
   const formatTime = (time) => {
     return (
       Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
@@ -38,20 +35,20 @@ const Player = ({
     }
   };
 
-  const handleSkipSong = (direction) => {
+  const handleSkipSong = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "forwards") {
-      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     }
     if (direction === "backwards") {
       if ((currentIndex - 1) % songs.length === -1) {
-        setCurrentSong(songs[songs.length - 1]);
-        playAudio(isPlaying, songRef);
+        await setCurrentSong(songs[songs.length - 1]);
+        if (isPlaying) songRef.current.play();
         return;
       }
-      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
     }
-    playAudio(isPlaying, songRef);
+    if (isPlaying) songRef.current.play();
   };
 
   useEffect(() => {
@@ -126,6 +123,9 @@ const TimeControl = styled.div`
   width: 50%;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 900px) {
+    width: 90%;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -134,6 +134,9 @@ const IconContainer = styled.div`
   align-items: center;
   width: 30%;
   padding-top: 1rem;
+  @media (max-width: 900px) {
+    width: 50%;
+  }
 `;
 
 const Slider = styled.input.attrs({
@@ -141,13 +144,17 @@ const Slider = styled.input.attrs({
 })`
   width: 100%;
   cursor: pointer;
-  /* padding: 1rem 0rem; */
   -webkit-appearance: none;
   background: transparent;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 12px;
     width: 12px;
+  }
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
   }
   &:focus {
     outline: none;

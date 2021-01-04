@@ -49,6 +49,9 @@ const LibraryContainer = styled.div`
   box-shadow: 5px 10px 20px rgb(15, 15, 15);
   transition: all 0.4s ease;
   transform: translateX(${(props) => (props.open ? "0%" : "-110%")});
+  @media (max-width: 900px) {
+    width: 100vw;
+  }
 `;
 
 const LibrarySongs = styled.div`

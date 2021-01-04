@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { playAudio } from "../utilities/utils";
 
 const LibrarySong = ({
   song,
@@ -12,8 +11,8 @@ const LibrarySong = ({
 }) => {
   const { name, artist, cover, id, active } = song;
 
-  const handleSongChange = () => {
-    setCurrentSong(song);
+  const handleSongChange = async () => {
+    await setCurrentSong(song);
     const newSong = songs.map((song) => {
       if (id === song.id) {
         return {
@@ -28,15 +27,7 @@ const LibrarySong = ({
       }
     });
     setSongs(newSong);
-    // if (isPlaying) {
-    //   const playPromise = songRef.current.play();
-    //   if (playPromise !== undefined) {
-    //     playPromise.then((audio) => {
-    //       songRef.current.play();
-    //     });
-    //   }
-    // }
-    playAudio(isPlaying, songRef);
+    if (isPlaying) songRef.current.play();
   };
 
   return (

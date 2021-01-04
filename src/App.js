@@ -42,6 +42,12 @@ function App() {
     });
   };
 
+  const handleSongEnd = async () => {
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    songRef.current.play();
+  };
+
   return (
     <Container open={open}>
       <Navbar setOpen={setOpen} open={open} />
@@ -70,6 +76,7 @@ function App() {
         src={currentSong.audio}
         onTimeUpdate={handleTimeChange}
         onLoadedMetadata={handleTimeChange}
+        onEnded={handleSongEnd}
       ></audio>
     </Container>
   );

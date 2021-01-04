@@ -43,6 +43,7 @@ const Title = styled.h5`
 
 const LibraryButton = styled.button`
   background-color: transparent;
+  z-index: 10;
   color: inherit;
   font-family: inherit;
   font-size: 1rem;

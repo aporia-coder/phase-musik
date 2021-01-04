@@ -62,6 +62,36 @@ function music() {
       color: ["#FDCB67", "#C46E5D"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9318",
     },
+    {
+      name: "Calm",
+      artist: "ODYSSEE, Florent Garcia",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/06/d9d8ae69141cb7838e3c53bbf393c6218285e384-1024x1024.jpg",
+      id: uuid(),
+      active: false,
+      color: ["#132173", "#8093FF"],
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=9285",
+    },
+    {
+      name: "fiveyearsago",
+      artist: "Psalm Trees",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/05/861564cb8a53229de4e63541a44f507c8b0da6ec-1024x1024.jpg",
+      id: uuid(),
+      active: false,
+      color: ["#F0492E", "#2DA879"],
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=9021",
+    },
+    {
+      name: "Flow",
+      artist: "Evil Needle",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/07/2c3bd458bfb0713c89f991d1ce469523e95e3b53-1024x1024.jpg",
+      id: uuid(),
+      active: false,
+      color: ["#FBC8A8", "#7F478E"],
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=8292",
+    },
   ];
 }
 
