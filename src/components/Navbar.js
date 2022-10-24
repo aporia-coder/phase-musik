@@ -11,7 +11,7 @@ const Navbar = ({ setOpen, open }) => {
         <Title>musik</Title>
       </TitleContainer>
       <LibraryButton onClick={() => setOpen(!open)}>
-        Library
+        {"Library "}
         <FontAwesomeIcon icon={faHeadphones} />
       </LibraryButton>
     </Nav>
