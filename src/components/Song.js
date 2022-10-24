@@ -18,7 +18,7 @@ const SongContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 60vh;
-  margin-top: 2rem;
+  margin: 2rem 0;
 `;
 
 const AlbumCover = styled.img`
